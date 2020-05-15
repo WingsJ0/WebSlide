@@ -1,3 +1,7 @@
+/**
+ * @name Webpack配置
+ */
+
 /* private */
 
 const Path = require('path')
