@@ -21,6 +21,28 @@ let config = {
     path: Path.resolve(__dirname, '../../#output'),
     filename: 'index.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          options: {
+            minimize: false
+          }
+        }
+      },
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 1024000000
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     htmlWebpackPlugin,
     new HtmlInlineChunkPlugin(htmlWebpackPlugin)

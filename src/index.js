@@ -10,6 +10,7 @@ const _ = require('lodash')
 const Webpack = require('webpack')
 const WebpackConfig = require('./config/webpack.js')
 const RuntimeConfig = require('./config/runtime.js')
+const MakeDirectory = require('./part/make-directory')
 
 /**
  * @name 制作配置
@@ -23,8 +24,10 @@ const makeConfig = () => {
  * @name 制作目录
  */
 const makeDirectory = () => {
-  let inputFiles = Fs.readdirSync(Path.resolve(__dirname, '../#input'))
-  let htmls = inputFiles.filter(el => /\.html$/.test(el)).sort((a, b) => a > b)
+  let base = Path.resolve(__dirname, '../#input')
+
+  let inputFiles = Fs.readdirSync(base)
+  let htmls = inputFiles.filter(el => /\.html$/.test(el)).sort((a, b) => a > b).map(el => Path.resolve(base, el).replace(/\\/g, '/'))
   Fs.writeFileSync(Path.resolve(__dirname, '../#temp/directory.json'), JSON.stringify(htmls))
 }
 /**
@@ -33,8 +36,18 @@ const makeDirectory = () => {
 const build = () => {
   Webpack(WebpackConfig, (er, stats) => {
     if (er || stats.hasErrors()) {
-      console.log(er)
-      console.log(stats)
+      if (er) {
+        console.log(er)
+      }
+      if (stats.hasErrors()) {
+        let statsJson = stats.toJson()
+        for (el of statsJson.errors) {
+          console.log(el)
+        }
+        for (el of statsJson.warnings) {
+          console.log(el)
+        }
+      }
     } else {
       Fs.unlinkSync(Path.resolve(__dirname, '../#output/index.js'))
     }
@@ -44,5 +57,5 @@ const build = () => {
 /* construct */
 
 makeConfig()
-makeDirectory()
+MakeDirectory()
 build()
