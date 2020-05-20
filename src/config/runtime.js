@@ -5,9 +5,10 @@
 /* public */
 
 let config = {
-  title: '网页幻灯片 - WingsJ'
+  title: '网页幻灯片 - WingsJ',
+  background: 'white'
 }
 
 /* construct */
 
-module.exports=config
+module.exports = config

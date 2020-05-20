@@ -1,3 +1,7 @@
-import Data from './core/data';
+/* private */
 
-document.head.append(Data.get(0).style)
+import Initiate from './part/initiate'
+
+/* construct */
+
+Initiate()
