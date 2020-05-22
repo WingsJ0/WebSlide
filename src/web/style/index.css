@@ -14,9 +14,44 @@ body {
   margin: 0;
 }
 
-body > .slide {
+:root {
+  --slide-height: 56.25vw;
+}
+
+#container {
+  position: relative;
   width: 100vw;
-  height: 56.25vw;
+  height: var(--slide-height);
 
   background-color: aliceblue;
+}
+
+#slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#control {
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#previous,
+#next {
+  width: 4em;
+  height: 4em;
+  background-size: 100%;
+}
+#previous {
+  margin-right: 2em;
+  background-image: url(./images/arrow-left.svg);
+}
+#next {
+  background-image: url(./images/arrow-right.svg);
 }
