@@ -4,31 +4,18 @@
 
 /* private */
 
-import config from '../../../../#temp/config.json';
-import broadcast from '../../core/broadcast';
+import Config from '../../../../#temp/config.json';
 import '../../style/index.css';
 
 /**
  * @name 设置样式
  */
 const setStyle = () => {
+  document.title = Config.title
+  document.documentElement.style.fontSize = Config.fontSize
+
   let slide = document.querySelector('#slide')
-
-  slide.style['background-color'] = config.background
-}
-/**
- * @name 设置控制器
- */
-const setControl = () => {
-  let previous = document.querySelector('#previous')
-  previous.addEventListener('click', () => {
-    broadcast.trigger('previous')
-  })
-
-  let next = document.querySelector('#next')
-  next.addEventListener('click', () => {
-    broadcast.trigger('next')
-  })
+  slide.style['background-color'] = Config.background
 }
 
 /* public */
@@ -38,7 +25,6 @@ const setControl = () => {
  */
 const initiate = () => {
   setStyle()
-  setControl()
 }
 
 /* construct */

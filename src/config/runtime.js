@@ -6,6 +6,7 @@
 
 let config = {
   title: '网页幻灯片 - WingsJ',
+  fontSize: '14px',
   background: 'white'
 }
 

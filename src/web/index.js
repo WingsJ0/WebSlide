@@ -1,5 +1,6 @@
 /* private */
 
+import Control from './part/control'
 import Initiate from './part/initiate'
 import Render from './part/render'
 
@@ -7,3 +8,4 @@ import Render from './part/render'
 
 Initiate()
 Render()
+Control()

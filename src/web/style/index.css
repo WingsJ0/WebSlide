@@ -1,3 +1,5 @@
+@import "./part/layout.css";
+
 html {
   color: #333;
   font-size: 14px;
@@ -34,12 +36,21 @@ body {
 
 #control {
   z-index: 100;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+#control > #content {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  transform: translateX(100%);
+  padding: 1em;
+  transition: transform 0.3s;
+}
+#control:hover > #content {
+  transform: translateX(0);
 }
 
 #previous,
@@ -47,9 +58,15 @@ body {
   width: 4em;
   height: 4em;
   background-size: 100%;
+  cursor: pointer;
+}
+#previous.disable,
+#next.disable {
+  opacity: 0.3;
+  pointer-events: none;
 }
 #previous {
-  margin-right: 2em;
+  margin-right: 1.5em;
   background-image: url(./images/arrow-left.svg);
 }
 #next {

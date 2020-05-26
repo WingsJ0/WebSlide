@@ -16,7 +16,7 @@ const RuntimeConfig = require('../../config/runtime')
  * @return {Promise}
  */
 const makeConfig = async () => {
-  let customConfig = JSON.parse(await Fs.readFile(Path.resolve(__dirname, '../../../#input/config.json')))
+  let customConfig = JSON.parse(await Fs.readFile(Path.resolve(__dirname, '../../../#input/$config.json')))
   let config = _.merge(RuntimeConfig, customConfig)
   
   return Fs.writeFile(Path.resolve(__dirname, '../../../#temp/config.json'), JSON.stringify(config))

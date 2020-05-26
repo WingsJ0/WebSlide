@@ -1,3 +1,4 @@
 {
-  "ignore":["\\#output/*","\\#temp/*"]
+  "ignore":["\\#output/*","\\#temp/*"],
+  "ext": "js json html css"
 }

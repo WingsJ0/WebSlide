@@ -71,6 +71,7 @@ const Broadcast = class {
    */
   trigger(key, event) {
     let methods = this.listenerList[key];
+
     if (methods)
       for (let i = 0; i < methods.length; i++)
         methods[i](event);

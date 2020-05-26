@@ -30,6 +30,8 @@ const render = (index = 0) => {
 
   style.innerHTML=data.style
   slide.innerHTML=data.template
+
+  eval(data.script)
 }
 
 /* construct */
