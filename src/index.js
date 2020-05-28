@@ -4,8 +4,9 @@
 
 /* private */
 
-const MakeDirectory = require('./part/make-directory')
 const MakeConfig = require('./part/make-config')
+const MakeStyle=require('./part/make-style')
+const MakeDirectory = require('./part/make-directory')
 const Build = require('./part/build')
 const Clean=require('./part/clean');
 
@@ -13,8 +14,7 @@ const Clean=require('./part/clean');
 
 (async () => {
   try {
-    await MakeConfig()
-    await MakeDirectory()
+    await Promise.all([MakeConfig(),MakeStyle(),MakeDirectory()])
     await Build()
     await Clean()
   } catch (er) {
