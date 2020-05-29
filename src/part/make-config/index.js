@@ -27,7 +27,7 @@ const makeConfig = async () => {
 
   let r = _.merge(RuntimeConfig, config)
 
-  return Fs.writeFile(Path.resolve(__dirname, '../../../#temp/config.json'), JSON.stringify(config))
+  return Fs.writeFile(Path.resolve(__dirname, '../../../#temp/config.json'), JSON.stringify(r))
 }
 
 /* construct */

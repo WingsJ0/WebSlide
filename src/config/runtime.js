@@ -6,10 +6,10 @@
 
 let config = {
   title: '网页幻灯片 - WingsJ',
-  rate:'16:9', // 16:9, 4:3
+  rate:'auto', // auto, 16:9, 4:3
   fontSize: '14px', // 全局字体大小
   background: 'white',
-  "pagination": false
+  pagination: false
 }
 
 /* construct */

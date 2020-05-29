@@ -17,8 +17,10 @@ const setStyle = () => {
   html.style.fontSize = Config.fontSize
   html.style['background-color'] = Config.background
 
-  if (Config.rate === '4:3') {
-    html.style.setProperty('--slide-height', '75vw');
+  if (Config.rate === '16:9') {
+    html.style.setProperty('--Slide-Height', '56.25vw');
+  } else if (Config.rate === '4:3') {
+    html.style.setProperty('--Slide-Height', '75vw');
   }
 }
 /**

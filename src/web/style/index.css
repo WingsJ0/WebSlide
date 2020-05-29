@@ -8,6 +8,7 @@
 :root {
   --Button-Size: 2rem;
   --Button-Gauge: 1rem;
+  --Slide-Height: 100vh;
 }
 
 * {
@@ -29,14 +30,10 @@ body {
   margin: 0;
 }
 
-:root {
-  --slide-height: 56.25vw;
-}
-
 #Container {
   position: relative;
   width: 100vw;
-  height: var(--slide-height);
+  height: var(--Slide-Height);
 }
 
 #Slide {
