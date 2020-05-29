@@ -13,16 +13,16 @@
     "web-slide": "./src/index.js"
   },
   "devDependencies": {
-    "css-loader": "^3.5.3",
-    "file-loader": "^6.0.0",
-    "html-loader": "^1.1.0",
-    "html-webpack-plugin": "^4.3.0",
-    "nodemon": "^2.0.3",
-    "style-loader": "^1.2.1",
-    "url-loader": "^4.1.0",
-    "webpack": "^4.43.0"
+    "nodemon": "2.0.3"
   },
   "dependencies": {
-    "lodash": "^4.17.15"
+    "css-loader": "3.5.3",
+    "file-loader": "6.0.0",
+    "html-loader": "1.1.0",
+    "html-webpack-plugin": "4.3.0",
+    "style-loader": "1.2.1",
+    "url-loader": "4.1.0",
+    "webpack": "4.43.0",
+    "lodash": "4.17.15"
   }
 }

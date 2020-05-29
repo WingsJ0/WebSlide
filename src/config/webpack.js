@@ -22,6 +22,9 @@ let config = {
     path: Path.resolve(OutputPath),
     filename: 'index.js'
   },
+  resolveLoader: {
+    modules: [Path.resolve(__dirname, '../../node_modules')]
+  },
   module: {
     rules: [
       {
