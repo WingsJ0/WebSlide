@@ -11,9 +11,15 @@ import '../../style/index.css';
  * @name 设置样式
  */
 const setStyle = () => {
+  let html = document.documentElement
+
   document.title = Config.title
-  document.documentElement.style.fontSize = Config.fontSize
-  document.documentElement.style['background-color'] = Config.background
+  html.style.fontSize = Config.fontSize
+  html.style['background-color'] = Config.background
+
+  if (Config.rate === '4:3') {
+    html.style.setProperty('--slide-height', '75vw');
+  }
 }
 /**
  * @name 设置控件

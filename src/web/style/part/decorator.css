@@ -1,0 +1,7 @@
+/**
+ * @name 装饰
+*/
+
+.Separator-Bottom {
+  border-bottom: 1px solid var(--Color-Border);
+}

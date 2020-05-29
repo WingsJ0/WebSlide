@@ -6,7 +6,7 @@
 
 const Path = require('path')
 const Fs = require('fs').promises
-const OutputPath=require('../../util/output-path')
+const OutputPath = require('../../util/output-path')
 
 /* public */
 
@@ -15,7 +15,13 @@ const OutputPath=require('../../util/output-path')
  * @return {Promise}
  */
 const clean = async () => {
-  return Fs.unlink(Path.resolve(OutputPath, './index.js'))
+  let tempDirPath = Path.resolve(__dirname, '../../../#temp')
+  let tempFiles = await Fs.readdir(tempDirPath)
+  let tempPathes = tempFiles.map(el => Path.resolve(tempDirPath, el))
+
+  let cleanPath = [Path.resolve(OutputPath, './index.js'), ...tempPathes]
+
+  return Promise.all(cleanPath.map(el => Fs.unlink(el)))
 }
 
 /* construct */

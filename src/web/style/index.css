@@ -1,5 +1,8 @@
 @import "./variable/global.css";
 @import "./part/layout.css";
+@import "./part/component.css";
+@import "./part/text.css";
+@import "./part/decorator.css";
 @import "../../../#temp/config.css";
 
 :root {

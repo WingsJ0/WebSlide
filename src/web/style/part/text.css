@@ -1,0 +1,13 @@
+/**
+ * @name 文本
+*/
+
+.Title {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.Subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

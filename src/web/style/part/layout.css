@@ -1,4 +1,6 @@
-/* 布局 */
+/**
+ * @name 布局
+*/
 
 /* Layout */
 .Layout {
@@ -10,18 +12,21 @@
 
 /* Head-Body */
 .Head {
+  position: relative;
   height: 2em;
   font-size: 2rem;
   line-height: 2em;
   vertical-align: middle;
 }
 .Body {
+  position: relative;
   height: calc(100% - 4rem);
   padding: 1rem 0;
 }
 
-/* 装饰 */
-
-.Separator-Bottom {
-  border-bottom: 1px solid var(--Color-Border);
+/* Half */
+.Half {
+  float: left;
+  position: relative;
+  width: 50%;
 }

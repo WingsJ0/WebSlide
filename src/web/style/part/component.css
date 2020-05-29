@@ -1,0 +1,12 @@
+/**
+ * @name 组件
+*/
+
+.List {
+  padding-left: 1rem;
+  margin: 0;
+  list-style-position: inside;
+}
+.List li{
+  line-height: 1.5;
+}
