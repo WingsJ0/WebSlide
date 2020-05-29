@@ -6,7 +6,7 @@
 
 const Path = require('path')
 const Fs = require('fs').promises
-const OutputPath = require('../../util/output-path')
+const OutputPath = require('../../util/cwd').outputPath
 
 /* public */
 

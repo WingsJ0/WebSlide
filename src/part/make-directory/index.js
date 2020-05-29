@@ -6,6 +6,7 @@
 
 const Path = require('path')
 const Fs = require('fs').promises
+const InputPath=require('../../util/cwd').inputPath
 
 const Template ='export default [ ${directory} ]'
 
@@ -16,10 +17,8 @@ const Template ='export default [ ${directory} ]'
  * @return {Promise}
  */
 const makeDirectory = async () => {
-  let input = Path.resolve(process.cwd(), './#input')
-
-  let inputFiles = await Fs.readdir(input)
-  let htmls = inputFiles.filter(el => /\.html$/.test(el)).sort((a, b) => a > b).map(el => `require('${Path.resolve(input, el).replace(/\\/g, '/')}')`)
+  let inputFiles = await Fs.readdir(InputPath)
+  let htmls = inputFiles.filter(el => /\.html$/.test(el)).sort((a, b) => a > b).map(el => `require('${Path.resolve(InputPath, el).replace(/\\/g, '/')}')`)
   let text = Template.replace('${directory}', htmls.join(','))
 
   return Fs.writeFile(Path.resolve(__dirname, '../../../#temp/directory.js'), text)

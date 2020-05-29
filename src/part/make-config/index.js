@@ -8,6 +8,7 @@ const Fs = require('fs').promises
 const Path = require('path')
 const _ = require('lodash')
 const RuntimeConfig = require('../../config/runtime')
+const InputPath=require('../../util/cwd').inputPath
 
 /* public */
 
@@ -17,7 +18,7 @@ const RuntimeConfig = require('../../config/runtime')
  */
 const makeConfig = async () => {
   let config
-  let path = Path.resolve(__dirname, '../../../#input/$config.json')
+  let path = Path.resolve(InputPath, './$config.json')
 
   try {
     config = JSON.parse(await Fs.readFile(path))

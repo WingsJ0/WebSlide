@@ -7,7 +7,7 @@
 const Path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlInlineChunkPlugin = require('../util/html-inline-chunk-plugin')
-const OutputPath=require('../util/output-path')
+const OutputPath = require('../util/cwd').outputPath
 
 let htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: Path.resolve(__dirname, '../web/index.html')
