@@ -1,5 +1,27 @@
+/* 布局 */
+
+/* Layout */
+.Layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+}
+
+/* Head-Body */
 .Head {
-  height: 10%;
-  padding: 1em;
-  font-size: 2em;
+  height: 2em;
+  font-size: 2rem;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.Body {
+  height: calc(100% - 4rem);
+  padding: 1rem 0;
+}
+
+/* 装饰 */
+
+.Separator-Bottom {
+  border-bottom: 1px solid var(--Color-Border);
 }

@@ -13,9 +13,13 @@ import '../../style/index.css';
 const setStyle = () => {
   document.title = Config.title
   document.documentElement.style.fontSize = Config.fontSize
-
-  let slide = document.querySelector('#slide')
-  slide.style['background-color'] = Config.background
+  document.documentElement.style['background-color'] = Config.background
+}
+/**
+ * @name 设置控件
+ */
+const setControl = () => {
+  document.querySelector('#Pagination').classList.toggle('Enable', Config.pagination)
 }
 
 /* public */
@@ -25,6 +29,7 @@ const setStyle = () => {
  */
 const initiate = () => {
   setStyle()
+  setControl()
 }
 
 /* construct */

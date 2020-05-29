@@ -108,8 +108,7 @@ const Broadcast = class {
 
 /* public */
 
-let events = ['previous', 'next']
-let broadcast = new Broadcast(events)
+let broadcast = new Broadcast()
 
 /* construct */
 

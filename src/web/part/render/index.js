@@ -4,17 +4,28 @@
 
 /* private */
 
+import Broadcast from '../../core/broadcast'
 import Data from '../../core/data'
 
-let style = null
-let slide = null
+let dom={
+  style:null,
+  slide:null
+}
 
 /**
  * @name 重置
  */
 const reset = () => {
-  style.innerHTML = ''
-  slide.innerHTML = ''
+  dom.style.innerHTML = ''
+  dom.slide.innerHTML = ''
+}
+
+/**
+ * @name 处理渲染
+ * @param {Number} index 索引
+ */
+const handle_render = index => {
+  render(index)
 }
 
 /* public */
@@ -28,15 +39,18 @@ const render = (index = 0) => {
 
   let data = Data[index]
 
-  style.innerHTML=data.style
-  slide.innerHTML=data.template
+  dom.style.innerHTML = data.style
+  dom.slide.innerHTML = data.template
 
   eval(data.script)
 }
 
 /* construct */
 
-style = document.querySelector('#style')
-slide = document.querySelector('#slide')
+dom.style = document.querySelector('#Style')
+dom.slide = document.querySelector('#Slide')
+
+Broadcast.addEvent('render')
+Broadcast.addListener('render', handle_render)
 
 export default render

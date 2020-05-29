@@ -4,41 +4,28 @@
 
 /* private */
 
+import Config from '../../../../#temp/config'
 import Broadcast from '../../core/broadcast'
 import Data from '../../core/data'
-import Render from '../render'
 
 let total = Data.length
 let index = 0
 let dom = {
+  pagination: null,
   previous: null,
-  next: null
+  next: null,
+  home: null
 }
 
-/**
- * @name 设置控制器
- */
-const initiate = () => {
-  let previous = document.querySelector('#previous')
-  previous.addEventListener('click', () => {
-    Broadcast.trigger('previous')
-  })
-  dom.previous = previous
-
-  let next = document.querySelector('#next')
-  next.addEventListener('click', () => {
-    Broadcast.trigger('next')
-  })
-  dom.next = next
-
-  update()
-}
 /**
  * @name 更新
  */
 const update = () => {
-  dom.previous.classList.toggle('disable', index === 0)
-  dom.next.classList.toggle('disable', index === total-1)
+  dom.pagination.innerText = `${index + 1} / ${total}`
+  dom.previous.classList.toggle('Disable', index === 0)
+  dom.next.classList.toggle('Disable', index === total - 1)
+
+  Broadcast.trigger('render', index)
 }
 /**
  * @name 处理上一张
@@ -48,8 +35,6 @@ const handle_previous = () => {
   index = Math.max(index, 0)
 
   update()
-
-  Render(index)
 }
 /**
  * @name 处理下一张
@@ -59,8 +44,14 @@ const handle_next = () => {
   index = Math.min(index, total - 1)
 
   update()
+}
+/**
+ * @name 处理回到首页
+ */
+const handle_home = () => {
+  index = 0
 
-  Render(index)
+  update()
 }
 
 /* public */
@@ -69,13 +60,26 @@ const handle_next = () => {
  * @name 控制
  */
 const control = () => {
-  Broadcast.addListener('previous', handle_previous)
-  Broadcast.addListener('next', handle_next)
+  let pagination = document.querySelector('#Pagination')
+  pagination.classList.toggle('Enable', Config.pagination)
+  dom.pagination = pagination
+
+  let previous = document.querySelector('#Previous')
+  previous.addEventListener('click', handle_previous)
+  dom.previous = previous
+
+  let next = document.querySelector('#Next')
+  next.addEventListener('click', handle_next)
+  dom.next = next
+
+  let home = document.querySelector('#Home')
+  home.addEventListener('click', handle_home)
+  dom.home = home
+
+  update()
 }
 
 /* construct */
-
-initiate()
 
 export default control
 
