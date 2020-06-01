@@ -6,7 +6,7 @@
 
 const Fs = require('fs').promises
 const Path = require('path')
-const InputPath=require('../../util/cwd').inputPath
+const InputPath = require('../../util/cwd').inputPath
 
 const Template = '@import "${style}"'
 
@@ -20,7 +20,7 @@ const makeStyle = async () => {
 
   let path = Path.resolve(InputPath, './$config.css')
   try {
-    let stat = await Fs.stat(path)
+    await Fs.stat(path)
     r = Template.replace('${style}', path.replace(/\\/g, '/'))
   } catch{
     r = ''

@@ -17,11 +17,8 @@ const watch = () => {
     script: Path.resolve(__dirname, './build.js'),
     ext: 'js json html css'
   })
-
 }
 
 /* construct */
-
-// let watchDir = Path.resolve(process.cwd(), './#input')
 
 module.exports = watch

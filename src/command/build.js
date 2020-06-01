@@ -4,6 +4,7 @@
 
 /* private */
 
+const prepare = require('../part/prepare')
 const MakeConfig = require('../part/make-config')
 const MakeStyle = require('../part/make-style')
 const MakeDirectory = require('../part/make-directory')
@@ -18,8 +19,8 @@ const OutputPath = require('../util/cwd').outputPath;
  */
 const build = async () => {
   try {
+    prepare()
     await Promise.all([MakeConfig(), MakeStyle(), MakeDirectory()])
-
     await Build()
     console.log('[Info] Build completed')
     await Clean()
