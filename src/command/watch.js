@@ -4,19 +4,17 @@
 
 /* private */
 
-const Path = require('path')
-const nodemon = require('nodemon')
+const serve=require('../part/serve')
+const Start = require('./start')
 
 /* public */
 
 /**
  * @name 监视
  */
-const watch = () => {
-  nodemon({
-    script: Path.resolve(__dirname, './build.js'),
-    ext: 'js json html css'
-  })
+const watch = async () => {
+  await Start()
+  serve()
 }
 
 /* construct */

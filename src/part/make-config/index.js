@@ -4,7 +4,7 @@
 
 /* private */
 
-const Fs = require('fs').promises
+const FS = require('fs').promises
 const Path = require('path')
 const _ = require('lodash')
 const RuntimeConfig = require('../../config/runtime')
@@ -21,14 +21,14 @@ const makeConfig = async () => {
   let path = Path.resolve(InputPath, './$config.json')
 
   try {
-    config = JSON.parse(await Fs.readFile(path))
+    config = JSON.parse(await FS.readFile(path))
   } catch{
     config = {}
   }
 
   let r = _.merge(RuntimeConfig, config)
 
-  return Fs.writeFile(Path.resolve(__dirname, '../../../#temp/config.json'), JSON.stringify(r))
+  return FS.writeFile(Path.resolve(__dirname, '../../../#temp/config.json'), JSON.stringify(r))
 }
 
 /* construct */

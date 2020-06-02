@@ -4,7 +4,7 @@
 
 /* private */
 
-const Fs = require('fs').promises
+const FS = require('fs').promises
 const Path = require('path')
 const InputPath = require('../../util/cwd').inputPath
 
@@ -20,13 +20,13 @@ const makeStyle = async () => {
 
   let path = Path.resolve(InputPath, './$config.css')
   try {
-    await Fs.stat(path)
+    await FS.stat(path)
     r = Template.replace('${style}', path.replace(/\\/g, '/'))
   } catch{
     r = ''
   }
 
-  return Fs.writeFile(Path.resolve(__dirname, '../../../#temp/config.css'), r)
+  return FS.writeFile(Path.resolve(__dirname, '../../../#temp/config.css'), r)
 }
 
 /* construct */

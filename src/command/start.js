@@ -1,5 +1,5 @@
 /**
- * @name 构建
+ * @name 启动
  */
 
 /* private */
@@ -17,7 +17,7 @@ const OutputPath = require('../util/cwd').outputPath;
 /**
  * @name 构建
  */
-const build = async () => {
+const start = async () => {
   try {
     prepare()
     await Promise.all([MakeConfig(), MakeStyle(), MakeDirectory()])
@@ -32,4 +32,4 @@ const build = async () => {
 
 /* construct */
 
-module.exports = build
+module.exports = start

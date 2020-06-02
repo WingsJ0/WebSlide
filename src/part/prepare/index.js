@@ -5,7 +5,7 @@
 /* private */
 
 const Path = require('path')
-const Fs = require('fs')
+const FS = require('fs')
 
 /* public */
 
@@ -15,21 +15,21 @@ const prepare = () => {
   let outputDir = Path.resolve(process.cwd(), '../../../#output')
 
   try {
-    Fs.statSync(inputDir)
+    FS.statSync(inputDir)
   } catch{
     console.log('[Error] #input directory not exists')
     process.exit(1)
   }
 
   try {
-    Fs.statSync(tempDir)
+    FS.statSync(tempDir)
   } catch{
-    Fs.mkdirSync(tempDir)
+    FS.mkdirSync(tempDir)
   }
   try {
-    Fs.statSync(outputDir)
+    FS.statSync(outputDir)
   } catch{
-    Fs.mkdirSync(outputDir)
+    FS.mkdirSync(outputDir)
   }
 }
 

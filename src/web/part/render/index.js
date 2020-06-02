@@ -18,14 +18,7 @@ let dom = {
  */
 const handle_render = (index = 0) => {
   reset()
-
-  let data = Data[index]
-  if (data) {
-    dom.style.innerHTML = data.style
-    dom.slide.innerHTML = data.template
-
-    eval(data.script)
-  }
+  update(index)
 }
 
 /**
@@ -34,6 +27,18 @@ const handle_render = (index = 0) => {
 const reset = () => {
   dom.style.innerHTML = ''
   dom.slide.innerHTML = ''
+}
+/**
+ * @name 更新
+ */
+const update = index => {
+  let data = Data[index]
+  if (data) {
+    dom.style.innerHTML = data.style
+    dom.slide.innerHTML = data.template
+
+    eval(data.script)
+  }
 }
 
 /* public */

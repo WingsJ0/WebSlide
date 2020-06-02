@@ -14,13 +14,17 @@
   },
   "dependencies": {
     "css-loader": "3.5.3",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
     "file-loader": "6.0.0",
     "html-loader": "1.1.0",
     "html-webpack-plugin": "4.3.0",
+    "live-server": "^1.2.1",
+    "lodash": "4.17.15",
+    "nodemon": "2.0.3",
+    "open": "^7.0.4",
     "style-loader": "1.2.1",
     "url-loader": "4.1.0",
-    "webpack": "4.43.0",
-    "lodash": "4.17.15",
-    "nodemon": "2.0.3"
+    "webpack": "4.43.0"
   }
 }
