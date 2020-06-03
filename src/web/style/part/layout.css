@@ -10,6 +10,18 @@
   padding: 2rem;
 }
 
+/* Title-Directory */
+.Title{
+  height: 4em;
+  padding:0 2rem;
+  font-size: 4rem;
+  line-height: 4em;
+}
+.Directory{
+  padding:0 2rem;
+  font-size: 1.5rem;
+}
+
 /* Head-Body */
 .Head {
   position: relative;

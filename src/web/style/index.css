@@ -6,8 +6,8 @@
 @import "../../../#temp/config.css";
 
 :root {
-  --Button-Size: 2rem;
-  --Button-Gauge: 1rem;
+  --Button-Size: 2em;
+  --Button-Gauge: 1em;
   --Slide-Height: 100vh;
 }
 
@@ -29,7 +29,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
 #Container {
   position: relative;
   width: 100vw;
@@ -40,6 +39,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  background: white;
 }
 
 #Control {
@@ -48,11 +48,12 @@ body {
   align-items: center;
   position: absolute;
   width: 100vw;
-  height: 4rem;
-  padding: 0 1rem;
+  height: 4em;
+  padding: 0 1em;
   right: 0;
   bottom: 0;
   color: var(--Color-Control);
+  font-size: 14px;
 }
 
 #Info {
@@ -61,8 +62,8 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 1rem 0 2rem;
-  line-height: 4rem;
+  padding: 0 1em 0 2em;
+  line-height: 4em;
 }
 
 #Pagination {
@@ -82,13 +83,13 @@ body {
   transition: width 0.3s;
 }
 #Control:hover > #Button {
-  width: 11rem;
+  width: 11em;
 }
 #Button::before {
   content: "";
   display: inline-block;
-  height: 2rem;
-  margin-right: 1rem;
+  height: 2em;
+  margin-right: 1em;
   border-right: 3px solid var(--Color-Border);
 }
 

@@ -1,12 +1,23 @@
 /**
  * @name 组件
 */
+.Section {
+  margin: 1em 0;
+}
 
 .List {
   padding-left: 1rem;
   margin: 0;
   list-style-position: inside;
 }
-.List li{
+.List li {
   line-height: 1.5;
+}
+
+.Code {
+  overflow: hidden;
+  padding: 1rem;
+  font-size: 0.75em;
+  white-space: pre-wrap;
+  background-color: #eeeeee;
 }

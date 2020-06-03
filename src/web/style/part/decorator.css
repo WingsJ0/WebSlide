@@ -2,6 +2,16 @@
  * @name 装饰
 */
 
+.Gap-S{
+  height:1rem;
+}
+.Gap-M{
+  height:2rem;
+}
+.Gap-L{
+  height:3rem;
+}
+
 .Separator-Bottom {
   border-bottom: 1px solid var(--Color-Border);
 }
