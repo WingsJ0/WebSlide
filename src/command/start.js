@@ -6,6 +6,7 @@
 
 const prepare = require('../part/prepare')
 const MakeConfig = require('../part/make-config')
+const MakeScript = require('../part/make-script')
 const MakeStyle = require('../part/make-style')
 const MakeDirectory = require('../part/make-directory')
 const Build = require('../part/build')
@@ -20,7 +21,7 @@ const OutputPath = require('../util/cwd').outputPath;
 const start = async () => {
   try {
     prepare()
-    await Promise.all([MakeConfig(), MakeStyle(), MakeDirectory()])
+    await Promise.all([MakeConfig(), MakeScript(), MakeStyle(), MakeDirectory()])
     await Build()
     console.log('[Info] Build completed')
     await Clean()

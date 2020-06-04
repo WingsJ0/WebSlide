@@ -4,7 +4,7 @@
 
 /* private */
 
-import Config from '../../../../#temp/config'
+import Config from '../../../../#temp/config.json'
 import Broadcast from '../../core/broadcast'
 import Data from '../../core/data'
 import Navigate from '../../core/navigate'
@@ -87,4 +87,3 @@ const control = () => {
 /* construct */
 
 export default control
-

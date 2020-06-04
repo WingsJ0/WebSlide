@@ -4,8 +4,9 @@
 
 /* private */
 
-import Config from '../../../../#temp/config.json';
-import '../../style/index.css';
+import Config from '../../../../#temp/config.json'
+import '../../../../#temp/config.js'
+import '../../style/index.css'
 
 /**
  * @name 设置样式
