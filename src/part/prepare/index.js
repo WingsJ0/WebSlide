@@ -6,16 +6,15 @@
 
 const Path = require('path')
 const FS = require('fs')
+const CWD = require('../../util/cwd')
 
 /* public */
 
 const prepare = () => {
-  let inputDir = Path.resolve(process.cwd(), './#input')
   let tempDir = Path.resolve(__dirname, '../../../#temp')
-  let outputDir = Path.resolve(process.cwd(), '../../../#output')
 
   try {
-    FS.statSync(inputDir)
+    FS.statSync(CWD.inputPath)
   } catch{
     console.log('[Error] #input directory not exists')
     process.exit(1)
@@ -27,9 +26,9 @@ const prepare = () => {
     FS.mkdirSync(tempDir)
   }
   try {
-    FS.statSync(outputDir)
+    FS.statSync(CWD.outputPath)
   } catch{
-    FS.mkdirSync(outputDir)
+    FS.mkdirSync(CWD.outputPath)
   }
 }
 
