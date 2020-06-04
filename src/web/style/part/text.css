@@ -3,11 +3,19 @@
 */
 
 .Title {
+  margin: 1em 0 0.4em 0;
   font-size: 2rem;
   font-weight: bolder;
 }
 
 .Subtitle {
+  margin: 1em 0 0.4em 0;
   font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.Minortitle{
+  margin: 1em 0 0.4em 0;
+  font-size: 1.1rem;
   font-weight: bold;
 }

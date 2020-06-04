@@ -1,4 +1,8 @@
 :root {
+  --Color-Text-Normal:#333;
+  --Color-Text-Sub:#bbbaba;
+  --Color-Text-Link: #25a5f0;
+  --Color-Border-Grey: #eeeeee;
+  --Color-Background-Grey: #eeeeee;
   --Color-Control: #666;
-  --Color-Border: #eeeeee;
 }

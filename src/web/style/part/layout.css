@@ -33,7 +33,7 @@
 .Body {
   position: relative;
   height: calc(100% - 4rem);
-  padding: 1rem 0;
+  padding-top: 1rem;
 }
 
 /* Half */

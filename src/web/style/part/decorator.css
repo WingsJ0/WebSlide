@@ -12,6 +12,6 @@
   height:3rem;
 }
 
-.Separator-Bottom {
-  border-bottom: 1px solid var(--Color-Border);
+.Border-Bottom {
+  border-bottom: 1px solid var(--Color-Border-Grey);
 }

@@ -15,7 +15,7 @@
   box-sizing: border-box;
 }
 html {
-  color: #333;
+  color: var(--Color-Text-Normal);
   font-size: 14px;
   font-family: "Microsoft Jhenghei";
 }
@@ -29,6 +29,14 @@ body {
   padding: 0;
   margin: 0;
 }
+a,
+a:visited,
+a:active,
+a:focus {
+  color: var(--Color-Text-Link);
+  text-decoration: none;
+}
+
 #Container {
   position: relative;
   width: 100vw;
@@ -90,7 +98,7 @@ body {
   display: inline-block;
   height: 2em;
   margin-right: 1em;
-  border-right: 3px solid var(--Color-Border);
+  border-right: 3px solid var(--Color-Border-Grey);
 }
 
 #Button > span:not(:last-child) {

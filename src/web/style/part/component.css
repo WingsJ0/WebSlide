@@ -1,6 +1,7 @@
 /**
  * @name 组件
 */
+
 .Section {
   margin: 1em 0;
 }
@@ -19,5 +20,15 @@
   padding: 1rem;
   font-size: 0.75em;
   white-space: pre-wrap;
-  background-color: #eeeeee;
+  background-color: var(--Color-Background-Grey);
+}
+
+.Site {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  color: var(--Color-Text-Sub);
+  font-size: 0.7rem;
 }
