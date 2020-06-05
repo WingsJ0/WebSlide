@@ -18,6 +18,8 @@
 
 配置文件类型为 JSON，默认名称为 **\$config.json** 。
 
+配置项可见：[./src/config/runtime.js](./src/config/runtime.js)
+
 ### 全局脚本
 
 全局脚本会在 DOMContentLoad 后执行，默认名称为 **\$config.js**。
@@ -44,3 +46,7 @@
 ```
 
 body、style、script 的内容会被提取并添加到页面中。
+
+#### 脚本
+
+脚本可使用CommonJs和ES模块方式引入。

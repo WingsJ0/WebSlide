@@ -4,8 +4,8 @@
 
 /* private */
 
-import Config from '../../../../#temp/config.json'
 import '../../../../#temp/config.js'
+import Config from '../../../../#temp/config.json'
 import '../../style/index.css'
 
 /**

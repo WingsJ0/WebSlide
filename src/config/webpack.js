@@ -16,7 +16,7 @@ let htmlWebpackPlugin = new HtmlWebpackPlugin({
 /* public */
 
 let config = {
-  mode: 'development',
+  mode: 'production',
   entry: Path.resolve(__dirname, '../web/index.js'),
   output: {
     path: Path.resolve(OutputPath),
