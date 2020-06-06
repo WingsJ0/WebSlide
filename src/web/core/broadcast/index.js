@@ -15,13 +15,13 @@ const Broadcast = class {
    * @name 构造方法
    * @type Function
    * @see Broadcast
-   * @param {Array} keys [String] 事件名数组 
+   * @param {Array} keys [String] 事件名数组
    */
   constructor(keys = null) {
-    this.listenerList = {};
+    this.listenerList = {}
     if (keys)
       for (let el of keys)
-        this.listenerList[el] = [];
+        this.listenerList[el] = []
   }
 
   /* public */
@@ -30,53 +30,54 @@ const Broadcast = class {
    * @name 添加监听者
    * @type Function
    * @see Broadcast
-   * @param {String} key 事件名 
+   * @param {String} key 事件名
    * @param {Function} callback (Object)=>{} 回调函数
    * @exception Event not existed 事件不存在
    */
   addListener(key, callback) {
-    let methods = this.listenerList[key];
+    let methods = this.listenerList[key]
     if (methods)
-      methods.push(callback);
+      methods.push(callback)
     else
-      throw new Error('Event not existed');
+      throw new Error('Event not existed')
   }
   /**
    * @name 去除监听者
    * @type Function
    * @see Broadcast
-   * @param {String} key 事件名 
-   * @param {Function} callback (Object)=>{} 回调函数 
+   * @param {String} key 事件名
+   * @param {Function} callback (Object)=>{} 回调函数
    * @exception Event not existed 事件不存在
    */
   removeListener(key, callback) {
-    let methods = this.listenerList[key];
-    if (methods)
+    let methods = this.listenerList[key]
+    if (methods) {
       for (let i = 0; i < methods.length; i++)
         if (methods[i] === callback) {
-          methods.splice(i, 1);
+          methods.splice(i, 1)
 
-          break;
+          break
         }
-        else
-          throw new Error('Event not existed');
+    }
+    else
+      throw new Error('Event not existed')
   }
   /**
    * @name 触发
    * @type Function
    * @see Broadcast
-   * @param {String} key 事件名 
-   * @param {Object} event 事件数据对象 
+   * @param {String} key 事件名
+   * @param {Object} event 事件数据对象
    * @exception Event not existed 事件不存在
    */
   trigger(key, event) {
-    let methods = this.listenerList[key];
+    let methods = this.listenerList[key]
 
     if (methods)
       for (let i = 0; i < methods.length; i++)
-        methods[i](event);
+        methods[i](event)
     else
-      throw new Error('Event not existed');
+      throw new Error('Event not existed')
   }
   /**
    * @name 添加事件
@@ -87,9 +88,9 @@ const Broadcast = class {
    */
   addEvent(key) {
     if (this.listenerList[key])
-      throw new Error('Event existed');
+      throw new Error('Event existed')
     else
-      this.listenerList[key] = [];
+      this.listenerList[key] = []
   }
   /**
    * @name 去除事件
@@ -100,11 +101,26 @@ const Broadcast = class {
    */
   removeEvent(key) {
     if (this.listenerList[key])
-      delete this.listenerList[key];
+      delete this.listenerList[key]
     else
-      throw new Error('Event not existed');
+      throw new Error('Event not existed')
   }
-};
+  /**
+   * @name 添加一次性监听
+   * @type Function
+   * @see Broadcast
+   * @param {String} key 事件名
+   * @param {Function} callback (Object)=>{} 回调函数
+   * @exception Event not existed 事件不存在
+   */
+  once(key, callback) {
+    this.addListener(key, () => {
+      this.removeListener(key, callback)
+
+      callback()
+    })
+  }
+}
 
 /* public */
 
@@ -112,4 +128,6 @@ let broadcast = new Broadcast()
 
 /* construct */
 
-export default broadcast;
+window.Broadcast = broadcast
+
+export default broadcast
