@@ -36,6 +36,9 @@ a:focus {
   color: var(--Color-Text-Link);
   text-decoration: none;
 }
+pre {
+  margin: auto;
+}
 
 #Container {
   position: relative;
@@ -56,7 +59,7 @@ a:focus {
 }
 
 #Control {
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   position: absolute;

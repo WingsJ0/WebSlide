@@ -24,6 +24,8 @@
 
 全局脚本会在 DOMContentLoad 后执行，默认名称为 **\$config.js**。
 
+模块可使用 CommonJs 和 ES 模块方式引入。
+
 ### 全局样式
 
 全局样式会应用到所有幻灯片中，默认名称为 **\$config.css** 。
@@ -46,12 +48,3 @@
 ```
 
 body、style、script 的内容会被提取并添加到页面中。
-
-#### 脚本
-
-脚本可使用 CommonJs 和 ES 模块方式引入。
-
-windows.Broadcast 暴露了全局广播，详情见[broadcast.js](./src/web/core/broadcast/index.js)
-可用事件有：
-
-- render：渲染
