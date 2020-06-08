@@ -36,9 +36,14 @@
   padding-top: 1rem;
 }
 
-/* Half */
-.Half {
+/* Divide */
+.Divide-2 {
   float: left;
   position: relative;
   width: 50%;
+}
+.Divide-3 {
+  float: left;
+  position: relative;
+  width: 33.3%;
 }

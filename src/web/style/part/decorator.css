@@ -2,14 +2,24 @@
  * @name 装饰
 */
 
-.Gap-S{
-  height:1rem;
+.Gap-S {
+  height: 1rem;
 }
-.Gap-M{
-  height:2rem;
+.Gap-M {
+  height: 2rem;
 }
-.Gap-L{
-  height:3rem;
+.Gap-L {
+  height: 3rem;
+}
+
+.Padding-S {
+  padding: 1rem;
+}
+.Padding-M {
+  padding: 2rem;
+}
+.Padding-L {
+  padding: 3rem;
 }
 
 .Border-Bottom {

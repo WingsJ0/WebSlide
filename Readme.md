@@ -24,6 +24,8 @@
 
 全局脚本会在 DOMContentLoad 后执行，默认名称为 **\$config.js**。
 
+模块可使用CommonJs和ES模块方式引入。
+
 ### 全局样式
 
 全局样式会应用到所有幻灯片中，默认名称为 **\$config.css** 。
@@ -47,6 +49,3 @@
 
 body、style、script 的内容会被提取并添加到页面中。
 
-#### 脚本
-
-脚本可使用CommonJs和ES模块方式引入。
