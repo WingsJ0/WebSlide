@@ -10,7 +10,7 @@
 
 运行成功后在工作目录下会生成#output 文件夹。
 
-## 目录结构
+## 输入
 
 所有输入（配置、幻灯片、资源）放置在 **#input** 文件中，所有输出产生在 **#output** 中。
 
@@ -48,3 +48,13 @@
 ```
 
 body、style、script 的内容会被提取并添加到页面中。
+
+## API
+
+Broadcast（广播，详见：**./src/web/core/broadcast/index.js**），会触发事件：
+
+- render：渲染
+
+## 样式
+
+详见**./src/web/style**。
