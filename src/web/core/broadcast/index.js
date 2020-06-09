@@ -52,12 +52,14 @@ const Broadcast = class {
   removeListener(key, callback) {
     let methods = this.listenerList[key]
     if (methods) {
-      for (let i = 0; i < methods.length; i++)
+      for (let i = 0; i < methods.length; i++) {
         if (methods[i] === callback) {
           methods.splice(i, 1)
 
           break
         }
+      }
+
     }
     else
       throw new Error('Event not existed')
@@ -114,11 +116,13 @@ const Broadcast = class {
    * @exception Event not existed 事件不存在
    */
   once(key, callback) {
-    this.addListener(key, () => {
-      this.removeListener(key, callback)
+    let wrapCallback = () => {
+      this.removeListener(key, wrapCallback)
 
       callback()
-    })
+    }
+
+    this.addListener(key, wrapCallback)
   }
 }
 

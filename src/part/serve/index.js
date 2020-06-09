@@ -65,6 +65,6 @@ const serve = () => {
 
 /* construct */
 
-handle_fileChange = _.debounce(handle_fileChange, 1000)
+handle_fileChange = _.debounce(handle_fileChange, 500)
 
 module.exports = serve
