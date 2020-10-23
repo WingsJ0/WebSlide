@@ -1,0 +1,46 @@
+<template>
+  <div class="Layout">
+    <div class="Subtitle">动画属性</div>
+    <ul class="List Divide-2">
+      <li>目标属性
+        <ul>
+          <li>attributeType：动画属性类型，CSS或XML</li>
+          <li>attributeName：动画属性名，比如width、stroke等</li>
+        </ul>
+      </li>
+      <li>定时属性
+        <ul>
+          <li>begin：动画开始时机，可以是时间，另一个动画的起始、结束或重复事件，元素的点击事件。可以设置多个值，表示多个并行的触发条件；可以+时间，表示延迟</li>
+          <li>dur：动画时长</li>
+          <li>end：动画结束时机，值同begin</li>
+          <li>restart：动画是否可以重启</li>
+          <li>repeatCount：动画重复次数</li>
+          <li>repeatDur：动画在一定时间内重复，超过后停止动画</li>
+          <li>fill：动画结束时元素的状态，freeze（保持动画最后的状态）或remove（恢复原状）</li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="List Divide-2">
+      <li>值属性
+        <ul>
+          <li>calcMode：插值计算方法，discrete、linear、paced、spline</li>
+          <li>values：断点，分号分割的一组值</li>
+          <li>keyTimes：断点时间，分号分割的一组值。0-1的浮点数，表示完成的比例</li>
+          <li>keySplines：calcMode为spline时的贝塞尔曲线控制点。空格组合、分号分隔</li>
+          <li>from：起始值</li>
+          <li>to：终点值</li>
+          <li>by：变化量</li>
+        </ul>
+      </li>
+      <li>累加属性
+        <ul>
+          <li>additive：动画叠加。replace（默认值）或sum，sum表示多个动画叠加在一起</li>
+          <li>accumulate：动画累计。none（默认值）或sum，sum表示一个动画的起点为上一个动画的终点</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="Site">
+    <div>参考资料：https://developer.mozilla.org/zh-CN/docs/Web/SVG/Attribute#Animation_Timing_Attributes</div>
+  </div>
+</template>

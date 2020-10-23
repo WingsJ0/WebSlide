@@ -1,0 +1,23 @@
+<template>
+  <div class="Layout">
+      <div class="Subtitle">JS事件</div>
+      <div>transition动画的开始和结束会分别触发事件：</div>
+      <ul class="List">
+        <li>transitionrun：开始，延迟前</li>
+        <li>transitionstart：开始，延迟后</li>
+        <li>transitionend：结束</li>
+      </ul>
+      <div>这些事件的回调函数接收的事件对象中包含：目标属性名和动画时间（不包含延迟）。transition设置了几个目标属性，这些事件就会触发几次。</div>
+      <div class="Gap-S"></div>
+      <div class="Emphasis">浏览器兼容性：</div>
+      <pre>
+IE × 5.5+ √ 10+
+Edge √
+Firefox × 2+ Θ 4+ᵖ¹ √ 5+ᵖ √ 16+
+Chrome √ 4+ᵖ √ 26+
+Safari Θ 3.1+ᵖ¹ √ 5.1+ᵖ √ 6.1+
+Opera × 9+ Θ 10.5+ᵖ¹ √ 12+ᵖ √ 12.1+
+      </pre>
+    </div>
+  </div>
+</template>

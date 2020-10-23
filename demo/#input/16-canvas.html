@@ -1,0 +1,28 @@
+<template>
+  <div class="Layout">
+    <div class="Head Border-Bottom">Canvas</div>
+    <div class="Body">
+      <div>Canvas是前端绘图的重要方式，但其本身并没有专门为动画服务的API，但在制作动画过程中有很多技巧。</div>
+      <div>最常用的是离屏Canvas，即把当前帧的内容保存下来，复制到下一帧。</div>
+      <div class="Gap-S"></div>
+      <div>比如实现一个渐隐效果：</div>
+      <div class="Code">const canvas = document.getElementById('canvas')
+const context = canvas.getContext('2d')
+context.globalAlpha = 0.95
+
+const offCanvas = document.createElement('canvas')
+offCanvas.width = Width
+offCanvas.height = Height
+const offContext = offCanvas.getContext('2d')
+offContext.globalCompositeOperation = 'copy'
+
+const anime = function()
+{
+    context.clearRect(x, y, Width, Height)
+    context.drawImage(offCanvas, x, y, Width, Height)
+    render()
+    offContext.drawImage(canvas, x, y, Width, Height)
+}</div>
+    </div>
+  </div>
+</template>

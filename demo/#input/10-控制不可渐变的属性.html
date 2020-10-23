@@ -1,0 +1,98 @@
+<template>
+  <div class="Layout">
+    <div class="Minortitle">不可渐变的属性</div>
+    <div id="example">
+      <div>#1-transition，visibility</div>
+      <div id="div-1" class="div"></div>
+
+      <div>#2-animation，display</div>
+      <div id="div-2" class="div"></div>
+    </div>
+    <div>
+      <div class="Divide-2 Padding-S">
+        <div class="Code">#div-1 {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+#div-1.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+        </div>
+      </div>
+      <div class="Divide-2 Padding-S">
+        <div class="Code">#div-2.hidden {
+  animation: fade 0.5s forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+  .div {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+    background-color: skyblue;
+
+  }
+
+  #div-1 {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s, visibility 0.5s;
+  }
+
+  #div-1.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #div-2.hidden {
+    animation: fade 0.5s forwards;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  let param = {
+    toggle_1: () => {
+      document.getElementById('div-1').classList.toggle('hidden')
+    },
+    toggle_2: () => {
+      document.getElementById('div-2').classList.toggle('hidden')
+    }
+  }
+  let gui=new GUI()
+  for (let key in param) {
+    gui.add(param, key)
+  }
+  Broadcast.once('render', () => {
+    gui.destroy()
+  })
+</script>

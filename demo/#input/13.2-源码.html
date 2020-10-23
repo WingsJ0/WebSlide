@@ -1,0 +1,31 @@
+<template>
+  <div class="Layout">
+    <div class="Code">
+#text
+{
+    overflow:hidden;
+    display:inline-block;
+    width:23ch;
+    word-break:keep-all;
+    white-space:nowrap;
+    vertical-align:center;
+    animation:textShow 3s steps(23) infinite;       /*steps(字数+1)*/
+}
+@keyframes textShow
+{
+    0%{width:0;}
+}
+
+#cursor
+{
+    animation:cursorBlink 1s infinite;
+}   
+@keyframes cursorBlink
+{
+    0%{opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
+}      
+        </div>
+  </div>
+</template>

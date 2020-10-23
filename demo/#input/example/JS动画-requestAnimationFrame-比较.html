@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>粒子漩涡</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+  </style>
+  <script src='./lib/Three.min.js'></script>
+  <script>
+    /*global THREE*/
+
+    /*成员*/
+
+    const Number = 50000;
+    const RadiusOffset = 1;
+    const RadiusRange = 1000;
+    const SpeedOffset = 0.01;
+    const SpeedRange = 0.1;
+
+    let scene = null;
+    let camera = null;
+    let renderer = null;
+    let particles = [];
+
+    /**
+     * @name 动画
+     */
+    function anime() {
+      render();
+
+      // requestAnimationFrame(anime);
+      setInterval(render,16.7)
+    }
+    /**
+     * @name 渲染
+     */
+    function render() {
+      geometry.vertices.forEach((el, i) => {
+        let particle = particles[i];
+        let position = particle.update();
+        el.x = position.x;
+        el.y = position.y;
+      });
+      geometry.verticesNeedUpdate = true;     //通知更新
+
+      renderer.render(scene, camera);
+    }
+    /**
+     * @name 半径分布
+     * @param {Number} max 最大值
+     * @param {Number} i 当前值
+     */
+    function radiusDistribute(max, i) {
+      let phase = i / max;
+      let value = -Math.cos(Math.PI / 2 * phase) + 1;
+
+      return value;
+    }
+    /**
+     * @name 速度分布
+     * @param {Number} max 最大值
+     * @param {Number} i 当前值
+     */
+    function speedDistribute(max, i) {
+      let phase = i / max;
+      let value = Math.cos(Math.PI / 2 * phase);
+
+      return value;
+    }
+    /**
+     * @name 生成参数
+     * @return {Object} 参数对象
+     */
+    function generateParams() {
+      let angle = Math.random() * Math.PI * 2;
+      let i = Math.random() * Number;
+      let radius = RadiusOffset + RadiusRange * (radiusDistribute(Number, i));
+      let speed = SpeedOffset * Math.random() + SpeedRange * (speedDistribute(Number, i) ** 4);
+
+      return { angle, radius, speed };
+    }
+
+    /**
+     * @name 粒子
+     */
+    class Particle extends THREE.Vector3 {
+      /*构造*/
+
+      /**
+       * @name 构造方法
+       */
+      constructor() {
+        let { angle, radius, speed } = generateParams();
+        let x = Math.cos(angle) * radius;
+        let y = Math.sin(angle) * radius;
+
+        super(x, y, 0);
+
+        this.angle = angle;
+        this.radius = radius;
+        this.speed = speed;
+      }
+
+      /*接口*/
+
+      /**
+       * @name 更新
+       */
+      update() {
+        this.angle += this.speed;
+        this.radius -= 3;
+        let x = Math.cos(this.angle) * this.radius;
+        let y = Math.sin(this.angle) * this.radius;
+
+        if (this.radius < 0) {
+          let params = generateParams();
+
+          this.radius = params.radius;
+          this.speed = params.speed;
+        }
+
+
+        return { x, y };
+      }
+    }
+
+    /*构造*/
+
+    scene = new THREE.Scene();
+    camera = new THREE.OrthographicCamera(-innerWidth / 2, innerWidth / 2, innerHeight / 2, -innerHeight / 2, 1, 100);
+    renderer = new THREE.WebGLRenderer();
+
+    scene.add(camera);
+    camera.position.set(0, 0, 10);
+    camera.lookAt(0, 0, 0);
+    renderer.setSize(innerWidth, innerHeight);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.appendChild(renderer.domElement);
+    });
+
+    let geometry = new THREE.Geometry();
+    let material = new THREE.PointsMaterial({ size: 3, color: 0xffffff });
+    for (let i = 0; i < Number; i++) {
+      let particle = new Particle();
+      particles.push(particle);
+      geometry.vertices.push(particle);
+    }
+    let points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    anime();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<template>
+  <div class="Layout">
+    <div class="Head Border-Bottom">2. JS动画</div>
+    <div class="Body">
+      <div class="Subtitle">setTimeout和setInterval</div>
+      <div>setTimeout和setInterval可以实现连续的JS动画，但是由于两者的调用定时都不精确且浏览器对其性能没有优化，不建议优先使用。</div>
+      <div class="Subtitle">requestAnimationFrame</div>
+      <div>requestAnimationFrame告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。</div>
+      <div>这个函数接收一个回调函数，返回一个可用于取消回调执行的整数。</div>
+      <div class="Gap-S"></div>
+      <div>requestAnimationFrame相较于setTimeout的优势在于其执行的频率是根据屏幕的刷新频率来决定的，能够在一个重绘周期内，回调函数只被执行一次。</div>
+      <div>但是setTimeout使用任务队列，在系统资源紧张的时候，多个回调函数可能会被挤压到一个重绘周期内执行。</div>
+      <div class="Gap-S"></div>
+      <div>requestAnimation使得动画的最佳刷新频率有系统来决定，可以提高效率。</div>
+      <div class="Gap-S"></div>
+      <div class="Emphasis">浏览器兼容性</div>
+      <pre>IE × 5.5+ √ 10+
+Edge √
+Firefox × 2+ Θ 4+ᵖ¹ √ 11+ᵖ √ 23+
+Chrome × 4+ Θ 10+ᵖ¹ Θ 18+ᵖ¹ √ 22+ᵖ √ 24+
+Safari × 3.1+ √ 6+ᵖ √ 6.1+
+Opera × 9+ √ 15+
+      </pre>
+    </div>
+  </div>
+</template>
