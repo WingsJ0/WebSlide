@@ -6,6 +6,8 @@
 
 [网页幻灯片](http://wings-j.gitee.io/webslide)
 
+右下角的按钮可翻页。
+
 示例源文件可见[demo/#input](demo/#input)。
 
 ## 使用方法
