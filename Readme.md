@@ -2,9 +2,10 @@
 
 用于生成网页幻灯片的 Node 程序，由多个输入文件（html、css、js、json），最终输出为一个 HTML 文件。
 
-## DEMO
+## 示例
 
-[网页幻灯片]()
+[网页幻灯片](http://wings-j.gitee.io/webslide)
+示例源文件可见[demo/#input](demo/#input)。
 
 ## 使用方法
 
