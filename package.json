@@ -1,11 +1,12 @@
 {
-  "name": "webslide",
+  "name": "@wings-j/web-slide",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
     "dev": "nodemon --config nodemon.json src/index.js",
-    "build": "node src/index.js"
+    "build": "node src/index.js",
+    "publish": "npm publish --access public"
   },
   "author": "WingsJ",
   "license": "ISC",
